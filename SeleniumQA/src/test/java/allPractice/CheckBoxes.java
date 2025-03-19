@@ -14,7 +14,7 @@ public class CheckBoxes {
 
 		WebDriver driver = new DriverSupply().getDriver();		
 		driver.get("https://demoqa.com/automation-practice-form");
-//		Thread.sleep(5000);
+//		Thread.sleep(800);
 
 
 		WebElement sports_checkbox=driver.findElement(By.id("hobbies-checkbox-1"));		
