@@ -1,0 +1,28 @@
+package managers;
+
+import org.openqa.selenium.WebDriver;
+
+import pages.FormPage;
+import pages.LoginPage;
+
+public class WebPageObjectManager {
+	
+	private WebDriver driver;
+	private LoginPage loginPage;
+	private FormPage formPage;
+	
+	public WebPageObjectManager(WebDriver driver) {
+		this.driver=driver;
+	}
+	
+	public LoginPage getLoginPage() {
+//		System.out.println("Inside getLoginPage");
+		return (loginPage==null)? loginPage= new LoginPage(this.driver): loginPage;
+	}
+	
+	public FormPage getFormPage() {
+//		System.out.println("Inside getFormPage");
+		return (formPage==null)? formPage= new FormPage(this.driver): formPage;
+	}
+
+}

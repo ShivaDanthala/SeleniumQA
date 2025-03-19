@@ -1,0 +1,29 @@
+package cucumber;
+
+import managers.FileReaderManager;
+import managers.WebDriverManager;
+import managers.WebPageObjectManager;
+
+public class TestContext {
+	private static String environmentType;
+	private WebDriverManager webDriverManager;
+	private WebPageObjectManager webPageObjectManager;
+	
+	public TestContext() {
+		System.out.println("Inside Test Context Constructor");
+		webDriverManager = new WebDriverManager();
+		environmentType= FileReaderManager.getInstance().getConfigFileReader().getEnvironment();
+		
+		System.out.println(environmentType);
+		switch(environmentType) {
+		case "BROWSER":
+			webPageObjectManager = new WebPageObjectManager(webDriverManager.createLocalDriver());
+			break;
+		}
+	}
+
+	public WebPageObjectManager getWebPageObjectManager() {
+		return webPageObjectManager;
+	}
+
+}
