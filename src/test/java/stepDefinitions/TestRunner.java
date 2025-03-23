@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
 		
 		features= {"C:\\Workspaces\\SeleniumQA\\src\\test\\resources\\features\\fillForm.feature"},
 		glue= {"stepDefinitions"},
-//		tags= {"@test"}, 
+//		tags= {"@test"},
 		plugin = { "pretty","html:target/cucumber-reports/report.html"},
 		monochrome=true	
 				

@@ -22,7 +22,7 @@ public class WebDriverManager implements IConstants {
 	public WebDriver createLocalDriver() {
 		String browserName = FileReaderManager.getInstance().getConfigFileReader().getBrowser();
 		System.out.println("Browser is " +browserName);
-		present_path=System.getProperty("user.dir"); //C:\Workspaces\SeleniumQA
+		present_path=System.getProperty("user.dir");
 
 		switch(browserName){
 		case "CHROME":

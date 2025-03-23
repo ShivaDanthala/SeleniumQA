@@ -9,8 +9,8 @@ import java.util.Properties;
 public class ConfigFileReader {
 
 	private Properties properties;
-	private final String propertyFilePath= "C:\\Workspaces\\SeleniumQA\\src\\test\\resources\\configurations\\config.properties";
-	
+	private final String propertyFilePath= "src\\test\\resources\\configurations\\config.properties";
+
 	public ConfigFileReader() {
 		BufferedReader reader;
 		try {
