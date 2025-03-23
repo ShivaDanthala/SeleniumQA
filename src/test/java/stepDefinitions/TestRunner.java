@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		
-		features= {"C:\\Workspaces\\SeleniumQA\\src\\test\\resources\\features\\fillForm.feature"},
+		features= {"C:\\Workspaces\\ohrmtest\\src\\test\\resources\\features\\fillForm.feature"},
 		glue= {"stepDefinitions"},
 //		tags= {"@test"},
 		plugin = { "pretty","html:target/cucumber-reports/report.html"},
