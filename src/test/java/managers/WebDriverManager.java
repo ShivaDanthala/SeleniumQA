@@ -9,30 +9,22 @@ import utilities.IConstants;
 public class WebDriverManager implements IConstants {
 
 	public static WebDriver web_driver;
-	//	public EventFiringWebDriver driver;
 	public static String present_path;
-
-	//	switch(browser) {
-//		public WebDriver getDriver() {
-//			if(driver==null)
-//			driver = (EventFiringWebDriver)createLocalDriver();
-//			return driver;
-//		}
 
 	public WebDriver createLocalDriver() {
 		String browserName = FileReaderManager.getInstance().getConfigFileReader().getBrowser();
 		System.out.println("Browser is " +browserName);
 		present_path=System.getProperty("user.dir");
+		System.out.println("present_path is "+present_path);
 
 		switch(browserName){
 		case "CHROME":
 			String chrome_driver =present_path + CHROME_PATH;
 			System.setProperty(CHROME_KEY, chrome_driver);
 			
-			ChromeOptions options = new ChromeOptions();
-			
+			ChromeOptions options = new ChromeOptions();			
 			options.addArguments("--start-maximized");
-//			options.addExtensions (new File("C:\\Users\\DELL\\Downloads\\undefined 2.1.24.0.crx"));
+//	        options.addExtensions (new File("/SeleniumQA/src/test/resources/drivers/Adblock.crx"));
 //			options.addArguments("disable-infobars");
 //			options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"}); 
 			
