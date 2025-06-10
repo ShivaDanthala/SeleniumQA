@@ -3,7 +3,6 @@ package stepDefinitions;
 import org.openqa.selenium.WebDriver;
 
 import cucumber.TestContext;
-import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import managers.WebDriverManager;
 
@@ -34,9 +33,8 @@ public class Hooks {
 		System.out.println("Scenario status ------> "+scenario.getStatus());
 		System.out.println("Scenario getClass ------> "+scenario.getClass());
 		
-		
 //		System.out.println("Cleaning activity..");
-//		driver.quit();
+		driver.quit();
 		
 	}
 }

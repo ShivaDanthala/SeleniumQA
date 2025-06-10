@@ -1,18 +1,13 @@
-
 Feature: Launching the Internet.herokuapp Page
 
-#Background: User launched the application URL
-#			  		Given User is navigated application URL
-
-  
-  Scenario: Launching Page Scenario
-   
+  Background: User launched the application URL
     Given User is navigated application URL
-    #And some other precondition
-    #When I complete action
-    #And some other action
-    #And yet another action
-    #Then I validate the outcomes
-    #And check more outcomesl
 
- 
+  Scenario: Verifying Add-Remove elements Page Scenario
+    When click on Add-Remove elements link
+    Then verify the Add-Remove elements page is open
+    And click on ADD ELEMENT button
+    Then verify DELETE button is displayed
+    Then click on DELETE button
+    Then verify for DELETE button is disappeared
+    Then close the browser

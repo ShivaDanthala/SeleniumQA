@@ -67,11 +67,14 @@
     <version>5.2.5</version>
 </dependency>
 
-
-
-  </dependencies>
-  
-  
+<!-- https://mvnrepository.com/artifact/net.masterthought/maven-cucumber-reporting -->
+<dependency>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>5.8.5</version>
+</dependency>
+</dependencies>
+    
   <build>
         <plugins>
             <plugin>
@@ -84,13 +87,38 @@
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
-        </plugins>
-    </build>
+                        
+            <plugin>  
+			    <groupId>net.masterthought</groupId>  
+			    <artifactId>maven-cucumber-reporting</artifactId>  
+			    <version>5.8.5</version>  
+			    <executions>  
+			
+			        <execution>  
+						<id>generate-report</id>  
+			            <phase>verify</phase>  
+			            <goals>  
+			           		 <goal>generate</goal>  
+			            </goals> 
+			            <configuration>
 
-  
-  
-  
-  
-  
-  
+							<projectName>Cucumber Project</projectName>
+							
+							<outputDirectory>${project.build.directory}/cucumber-reports</outputDirectory>
+							
+							<jsonFiles>
+								 <jsonFile>${project.build.directory}/cucumber-reports/Cucumber.json</jsonFile>
+							 </jsonFiles>
+							
+							<reportTargetDirectory>${project.build.directory}/cucumber-reports</reportTargetDirectory>
+					
+						</configuration> 
+				    </execution>  
+			       </executions>  
+			</plugin>
+			
+			
+        </plugins>
+        
+    </build>
 </project>
