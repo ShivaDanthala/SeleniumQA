@@ -8,10 +8,11 @@ public class FileReaderManager {
 																				  //as private static
 	private static ConfigFileReader configFileReader;
 
-	private FileReaderManager() {
+	private FileReaderManager() { // rule for singleton, which is private constructor 
+									//to restrict other classes instantiation 
 	}
 	
-	public static FileReaderManager getInstance() {  // Factory method
+	public static FileReaderManager getInstance() {  // public Factory method to 
 		return fileReaderManager;
 	}
 	

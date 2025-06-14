@@ -45,6 +45,10 @@ public class BasePage {
 //		wait.until(ExpectedConditions.)
 	}
 	
-	
+	public void waitTillAlertDisplayed() throws TimeoutException {
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.alertIsPresent());
+//		System.out.println("waitTillAlertDisplayed");
+	}
 	
 }
