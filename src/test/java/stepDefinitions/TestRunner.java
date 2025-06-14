@@ -13,7 +13,7 @@ import io.cucumber.junit.CucumberOptions;
 
 		glue= {"stepDefinitions"},
 //		tags= {"@test"},
-		plugin = {"pretty", "html:target/cucumber-reports/cucumber.html"},
+		plugin = {"pretty", "html:target/cucumber-reports/cucumber.html","json:target/cucumber.json"},
 		monochrome=true
 				
 		
