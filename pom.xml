@@ -99,7 +99,7 @@
                         <configuration>
                             <projectName>CucumberWebGui</projectName>
                             <outputDirectory>${project.build.directory}/cucumber-report-html</outputDirectory>
-                            <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
+                            <!-- <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput> -->
                         </configuration>
                     </execution>
                 </executions>
