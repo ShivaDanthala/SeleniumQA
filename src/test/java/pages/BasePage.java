@@ -24,6 +24,19 @@ public class BasePage {
 	
 	
 	
+	public void closeBrowser() {
+//		driver.quit();
+		driver.navigate().refresh();
+	}
+	
+	public void refreshBrowser() {
+		driver.navigate().refresh();
+	}
+
+	public void launchAppURL(String appURL) {
+		driver.get(appURL);
+	}
+	
 	/**
 	 * 
 	 * JavascriptExecutor methods 
@@ -60,7 +73,6 @@ public class BasePage {
 		wait.until(ExpectedConditions.visibilityOfAllElements(allElements));
 		System.out.println("waited Till AllElements Displayed");
 	}
-	
 	
 	public void waitTillElementisInvisible(WebElement invisibleElement) {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(15));

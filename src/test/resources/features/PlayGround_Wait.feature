@@ -24,7 +24,7 @@ Feature: Launching the The Playground Page
     Then verify the Displayed Options
     Then close the browser
     
-   Scenario: Wait Conditions - Verifying the Element To Be Visible Scenarios
+   Scenario: Wait Conditions - Verifying the Element To Be Invisible Scenarios
     When click on Wait Conditions View Page button
     Then verify the Wait for Element To Be Invisible Header is displayed
     And Click on TRIGGER button in Element To Be Invisible Header section
