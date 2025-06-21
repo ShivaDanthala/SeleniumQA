@@ -43,7 +43,7 @@ public class WaitConditionsSteps extends WebDriverManager{
 
 	@Then("verify the Wait for Alert To Be Present Header is displayed")
 	public void verify_the_wait_for_alert_to_be_present_header_is_displayed() throws Exception {
-		waitConditionsPage.verifyWaitForAlert_Header();
+		waitConditionsPage.verifyheader_WaitForAlert();
 	}
 
 	@Then("verify the Show Alert button is displayed")
@@ -104,7 +104,7 @@ public class WaitConditionsSteps extends WebDriverManager{
 
 	@Then("verify the Wait for Element To Be Invisible Header is displayed")
 	public void verify_the_wait_for_element_to_be_invisible_header_is_displayed() {
-		waitConditionsPage.verifyWaitForElementInvisible_Header();
+		waitConditionsPage.verifyheader_WaitForElementInvisible();
 	}
 	@Then("Click on TRIGGER button in Element To Be Invisible Header section")
 	public void click_on_trigger_button_in_element_to_be_invisible_header_section() {
@@ -119,6 +119,36 @@ public class WaitConditionsSteps extends WebDriverManager{
 		waitConditionsPage.verifySpinnerGone();
 	}
 
+
+	@Then("verify the Wait for Element To Be Enabled Header is displayed")
+	public void verify_the_wait_for_element_to_be_enabled_header_is_displayed() {
+		waitConditionsPage.verifyheader_ElementToBeEnabledSection();
+	}
+	@Then("verify the DISABLED BUTTON is displayed")
+	public void verify_the_disabled_button_is_displayed() {
+		waitConditionsPage.verifyButton_Disabled();
+	}
+	@Then("Click on TRIGGER button in Element To Be Enabled Header section")
+	public void click_on_trigger_button_in_element_to_be_enabled_header_section() {
+		waitConditionsPage.clickOnTriggerButton_ElememtToBeEnabledSection();
+	}
+	@Then("Wait for Disability of DISABLED BUTTON")
+	public void wait_for_disability_of_disabled_button() {
+//		waitConditionsPage.verifyDisablity_DisabledBtn();
+	}
+	@Then("Wait for ENABLED BUTTON is displayed")
+	public void wait_for_enabled_button_is_displayed() throws TimeoutException {
+		waitConditionsPage.verifyEnabledBtn();
+	}
+	@Then("click on ENABLED BUTTON button")
+	public void click_on_enabled_button_button() {
+		waitConditionsPage.click_EnabledBtn();
+		
+	}
+	@Then("verify the Displayed Options on ENABLED BUTTON")
+	public void verify_the_displayed_options_on_enabled_button() throws TimeoutException {
+		waitConditionsPage.verifyTheDisplayedOptions_EnbaledButton();
+	}
 
 
 

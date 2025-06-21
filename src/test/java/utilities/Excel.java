@@ -11,7 +11,7 @@ public class Excel {
 	public static String getValue(String excelPath, String sheetName, int rowNum, int celNum){
 
 		String value;
-		System.out.println("inside getValue()");
+//		System.out.println("inside getValue()");
 		FileInputStream fis;
 		try {
 			fis = new FileInputStream(excelPath);
@@ -22,16 +22,16 @@ public class Excel {
 			value="";
 		}
 
-		System.out.println("sheetName "+sheetName);
-		System.out.println("rowNum "+rowNum);
-		System.out.println("celNum" +celNum);
+//		System.out.println("sheetName "+sheetName);
+//		System.out.println("rowNum "+rowNum);
+//		System.out.println("celNum" +celNum);
 
 		return value;
 	}
 
 	public static int getTotalRow(String excelPath, String sheetName) {
 		int rowCount;
-		System.out.println("inside getTotalRow()");
+//		System.out.println("inside getTotalRow()");
 		try {
 			FileInputStream fis = new FileInputStream(excelPath);
 			Workbook wb= WorkbookFactory.create(fis);

@@ -1,12 +1,11 @@
 package pages;
 
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
-import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,49 +22,70 @@ public class WaitConditionsPage extends BasePage {
 	private WebElement viewPage1;
 
 	@FindBy(xpath="//h3[normalize-space()='Wait for alert to be present']")
-	private WebElement WaitForAlert_header;
+	private WebElement headerWaitForAlert;
 
 	@FindBy(xpath="//button[text()='Show Alert']")
-	private WebElement showAlert_btn;
+	private WebElement btnShowAlert;
 
 	@FindBy(xpath="//span[normalize-space()='Alert handled']")
-	private WebElement alertHandledMsg;
+	private WebElement msgAlertHandled;
 
 	@FindBy(xpath="//button[text()='Show Prompt']")
-	private WebElement showPrompt_btn;
+	private WebElement btnShowPrompt;
 	
 	@FindBy(xpath="//span[@id='confirm_cancelled_badge']")
-	private WebElement showPrompt_CancelMsg;
+	private WebElement cancelMsg_ShowPrompt;
 	
 	@FindBy(xpath="//span[@id='confirm_ok_badge']")
-	private WebElement showPrompt_OKMsg;
+	private WebElement oKMsg_ShowPrompt;
 		
 	@FindBy(xpath="//h3[text()='Wait for element to be visible']")
-	private WebElement WaitForElementVisible_header;
+	private WebElement headerWaitForElementVisible;
 	
 	@FindBy(xpath="//h3[text()='Wait for element to be Invisible']/preceding::button[text()='Trigger']")
-	private WebElement WaitForElementVisibleTrigger_btn;
+	private WebElement btnTrigger_WaitForElementVisible;
 	
 	@FindBy(xpath="//h3[text()='Wait for element to be Invisible']/preceding::button[text()='Click Me']")
-	private WebElement WaitForElementVisibleClickMe_btn;
+	private WebElement btnClickMe_WaitForElementVisibleSection;
 	
 	@FindBy(xpath="//h3[text()='Can you see me?']")
-	private WebElement canYouSeeMe;
+	private WebElement msgCanYouSeeMe;
 	
 	@FindBy(xpath="//div[text()='I just removed my invisibility cloak!!']")
-	private WebElement iJustRemovedMyInvisibilityCloak;
+	private WebElement div_IJustRemovedMyInvisibilityCloak;
 	
 	@FindBy(xpath="//h3[text()='Wait for element to be Invisible']")
-	private WebElement WaitForElementInvisible_header;
+	private WebElement headerWaitForElementInvisible;
 	
 	@FindBy(xpath="//div[@id='invisibility_target']/preceding::button[text()='Trigger'][1]")
-	private WebElement WaitForElementIvisibleTrigger_btn;
+	private WebElement btnTrigger_WaitForElementIvisible;
 	
 	@FindBy(xpath="//div[@id='invisibility_target']")
-	private WebElement loading_Spinner;
+	private WebElement spanLoadingSpinner;
 	
 	@FindBy(xpath="//p[@id='spinner_gone']")
-	private WebElement spinner_gone;
+	private WebElement msgSpinnerGone;
+	
+	@FindBy(xpath="//h3[contains(text(),'element to be enabled')]")
+	private WebElement headerElementToBeEnabled;
+	
+	@FindBy(xpath="//button[normalize-space()='Disabled Button']/preceding::button[text()='Trigger'][1]")
+	private WebElement btnTrigger_ElementToBbeEnabled;
+	
+	@FindBy(xpath="//button[normalize-space()='Disabled Button']")
+	private WebElement btnDisabled;
+	
+	@FindBy(xpath="//button[normalize-space()='Enabled Button']")
+	private WebElement btnEnabled;
+	
+	@FindBy(xpath="//h3[text()='Yay! I am super active now!']")
+	private WebElement msgIamSuperActiveNow;
+	
+	@FindBy(xpath="//div[text()='See, you just clicked me!!']")
+	private WebElement div_SeeYouJustClickedMe;
+	
+	
+	
 	
 	
 	
@@ -77,16 +97,16 @@ public class WaitConditionsPage extends BasePage {
 		viewPage1.click();		
 	}
 
-	public void verifyWaitForAlert_Header() throws Exception {
-		assertTrue(WaitForAlert_header.isDisplayed(), "WaitForAlert_header is NOT displayed");
+	public void verifyheader_WaitForAlert() throws Exception {
+		assertTrue(headerWaitForAlert.isDisplayed(), "headerWaitForAlert is NOT displayed");
 	}
 	
 	public void verfiyButtonDisplayed() throws Exception {
-		assertTrue(showAlert_btn.isDisplayed(), "showAlert button is NOT displayed");
+		assertTrue(btnShowAlert.isDisplayed(), "showAlert button is NOT displayed");
 	}
 
 	public void clickOnShowAlert() {
-		showAlert_btn.click();
+		btnShowAlert.click();
 	}
 
 	public void acceptAlert() throws TimeoutException {
@@ -97,16 +117,16 @@ public class WaitConditionsPage extends BasePage {
 	}
 
 	public void alertSuccessfull() {
-		Assert.assertTrue(alertHandledMsg.isDisplayed());
+		assertTrue(msgAlertHandled.isDisplayed());
 		System.out.println("Assert PASSED");
 	}
 
 	public void verfiyPromptButtonDisplayed() {
-			assertTrue(showPrompt_btn.isDisplayed(), "Show Prompt btn is NOT displayed");
+			assertTrue(btnShowPrompt.isDisplayed(), "Show Prompt btn is NOT displayed");
 	}
 
 	public void clickOnShowPrompt() {
-		showPrompt_btn.click();		
+		btnShowPrompt.click();		
 	}
 
 	public void alertPromptSuccessfull() throws TimeoutException {
@@ -116,65 +136,100 @@ public class WaitConditionsPage extends BasePage {
 		
 		//First Cancel or Dismiss
 		alert.dismiss();		
-		assertTrue(showPrompt_CancelMsg.isDisplayed(), "No Cancel Prompt message is showing");
+		assertTrue(cancelMsg_ShowPrompt.isDisplayed(), "No Cancel Prompt message is showing");
 		
 		// Now accepting or OK
-		showPrompt_btn.click();
+		btnShowPrompt.click();
 		waitTillAlertDisplayed();
 		alert.accept();
-		assertTrue(showPrompt_OKMsg.isDisplayed(), "No OK Prompt message is showing");
+		assertTrue(oKMsg_ShowPrompt.isDisplayed(), "No OK Prompt message is showing");
 	}
 
 	public void verifyWaitForElement_Header() throws Exception {
-		assertTrue(WaitForElementVisible_header.isDisplayed(), "WaitForElementVisible_header is NOT displayed");
-		scrollToElement(WaitForElementVisible_header);
+		assertTrue(headerWaitForElementVisible.isDisplayed(), "headerWaitForElementVisible is NOT displayed");
+		scrollToElement(headerWaitForElementVisible);
 	}
 
 	public void clickOnTriggerButtonVisibleSection() {
-		WaitForElementVisibleTrigger_btn.click();		
+		btnTrigger_WaitForElementVisible.click();		
 	}
 
 	public void verifyTheClickMeButton() throws TimeoutException {
-		waitTillButtonDisplayed(WaitForElementVisibleClickMe_btn);
+		waitTillButtonDisplayed(btnClickMe_WaitForElementVisibleSection);
 	}
 
 	public void clickOnClickMeButton() {
-		WaitForElementVisibleClickMe_btn.click();
+		btnClickMe_WaitForElementVisibleSection.click();
 	}
 
 	public void verifyTheDisplayedOptions() throws TimeoutException {
 		
 		List<WebElement> allOptions = new ArrayList<WebElement>();
 		
-		allOptions.add(canYouSeeMe);
-		allOptions.add(iJustRemovedMyInvisibilityCloak);
-		
-		System.out.println("Options are : "+allOptions);
+		allOptions.add(msgCanYouSeeMe);
+		allOptions.add(div_IJustRemovedMyInvisibilityCloak);
 		
 		waitTillAllElementsDisplayed(allOptions);
 		
-//		assertTrue(canYouSeeMe.isDisplayed(), "canYouSeeMe is NOT visible");
-//		assertTrue(iJustRemovedMyInvisibilityCloak.isDisplayed(), "iJustRemovedMyInvisibilityCloak is NOT visible");
 	}
 
-	public void verifyWaitForElementInvisible_Header() {
-		assertTrue(WaitForElementInvisible_header.isDisplayed(), "WaitForElementInvisible_header NOT loaded");
-		scrollToElement(WaitForElementInvisible_header);
+	public void verifyheader_WaitForElementInvisible() {
+		assertTrue(headerWaitForElementInvisible.isDisplayed(), "headerWaitForElementInvisible NOT loaded");
+		scrollToElement(headerWaitForElementInvisible);
 	}
 
 	public void clickOnTriggerButton_InvisibleSection() {
-		WaitForElementIvisibleTrigger_btn.click();
+		btnTrigger_WaitForElementIvisible.click();
 	}
 
 	public void verifyTheInvisibility_Spinner() {
-		waitTillElementisInvisible(loading_Spinner);
+		waitTillElementisInvisible(spanLoadingSpinner);
 	}
 
 	public void verifySpinnerGone() throws TimeoutException {
-		waitTillElementDisplayed(spinner_gone);		
+		waitTillElementDisplayed(msgSpinnerGone);		
 	}
 
+	public void verifyheader_ElementToBeEnabledSection() {
+		assertTrue(headerElementToBeEnabled.isDisplayed(), "headerElementToBeEnabled is NOT displayed");
+		scrollToElement(headerElementToBeEnabled);
+	}
 
+	public void verifyButton_Disabled() {
+		assertTrue(btnDisabled.isDisplayed(), "btnDisabled NOT displayed");
+	}
+
+	public void clickOnTriggerButton_ElememtToBeEnabledSection() {
+		 btnTrigger_ElementToBbeEnabled.click();
+	}
+
+	public void verifyDisablity_DisabledBtn() {
+		assertTrue(!btnDisabled.isDisplayed(), "btnDisabled is displayed");
+		waitTillElementisInvisible(btnDisabled);
+	}
+
+	public void verifyEnabledBtn() throws TimeoutException {
+		waitTillElementDisplayed(btnEnabled);
+		assertTrue(btnEnabled.isDisplayed(), "btnEnabled is NOT displayed");
+	}
+
+	public void click_EnabledBtn() {
+//		assert_isDisplayed(btnEnabled);
+		assert_Equals(btnEnabled.getText(), "Enabled Button");
+		btnEnabled.click();	
+		
+	}
+
+public void verifyTheDisplayedOptions_EnbaledButton() throws TimeoutException {
+		
+		List<WebElement> allOptions = new ArrayList<WebElement>();
+		
+		allOptions.add(msgIamSuperActiveNow);
+		allOptions.add(div_SeeYouJustClickedMe);
+		
+		waitTillAllElementsDisplayed(allOptions);
+		
+	}
 
 
 

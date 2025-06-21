@@ -1,5 +1,8 @@
 package pages;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
@@ -13,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 	WebDriver driver;
-	private WebDriverWait wait;	
+	private WebDriverWait wait;
 	//JavascriptExecutor js=(JavascriptExecutor)driver;
 	
 	public BasePage(WebDriver driver) {
@@ -21,8 +24,6 @@ public class BasePage {
 		PageFactory.initElements(this.driver, this);
 		//this.driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 	}
-	
-	
 	
 	public void closeBrowser() {
 //		driver.quit();
@@ -93,4 +94,17 @@ public class BasePage {
 	}
 	
 	
+	/**	
+	 * 
+	 * Assertions methods 
+	 * 
+	 * **/
+	
+	public void assert_isDisplayed(WebElement btnDisplayed) {
+		assertTrue(btnDisplayed.isDisplayed(), " The " +btnDisplayed.getText()+ "is NOT displayed");
+	}
+	
+	public void assert_Equals(String actual, String expected) {
+		assertEquals(actual, expected);
+	}
 }

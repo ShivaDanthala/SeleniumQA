@@ -1,12 +1,13 @@
 package cucumber;
 
+import enums.EnvironmentType;
 import managers.FileReaderManager;
 import managers.WebDriverManager;
 import managers.WebPageObjectManager;
 
 public class TestContext {
-	private static String environmentType;
-	private WebDriverManager webDriverManager;
+	private static EnvironmentType environmentType;
+	public WebDriverManager webDriverManager;
 	private WebPageObjectManager webPageObjectManager;
 	
 	public TestContext() {
@@ -16,10 +17,14 @@ public class TestContext {
 		
 		System.out.println(environmentType);
 		switch(environmentType) {
-		case "BROWSER":
+		case BROWSER:
+			webPageObjectManager = new WebPageObjectManager(webDriverManager.createLocalDriver());
+			break;
+		case MOBILE:
 			webPageObjectManager = new WebPageObjectManager(webDriverManager.createLocalDriver());
 			break;
 		}
+		
 	}
 
 	public WebPageObjectManager getWebPageObjectManager() {

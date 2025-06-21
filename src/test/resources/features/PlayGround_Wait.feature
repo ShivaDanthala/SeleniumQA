@@ -13,26 +13,31 @@ Feature: Launching the The Playground Page
     Then verify the Show Prompt button is displayed
     And click on Show Prompt button
     Then verify AlertPrompt handled successfully
-    Then close the browser
 
-   Scenario: Wait Conditions - Verifying the Element To Be Visible Scenarios
+  Scenario: Wait Conditions - Verifying the Element To Be Visible Scenarios
     When click on Wait Conditions View Page button
     Then verify the Wait for Element To Be Visible Header is displayed
     And Click on TRIGGER button in Element To Be Visible Header section
     Then Wait for visibilty of CLICK ME button
     Then click on CLICK ME button
     Then verify the Displayed Options
-    Then close the browser
     
-   Scenario: Wait Conditions - Verifying the Element To Be Invisible Scenarios
+  Scenario: Wait Conditions - Verifying the Element To Be Invisible Scenarios
     When click on Wait Conditions View Page button
     Then verify the Wait for Element To Be Invisible Header is displayed
     And Click on TRIGGER button in Element To Be Invisible Header section
     Then Wait for Invisibilty of spinner
     Then verify the text Thank God that spinner is gone!
-    Then close the browser
     
-    
+  Scenario: Wait Conditions - Verifying the Element To Be Enabled Scenarios
+    When click on Wait Conditions View Page button
+    Then verify the Wait for Element To Be Enabled Header is displayed
+    Then verify the DISABLED BUTTON is displayed
+    And Click on TRIGGER button in Element To Be Enabled Header section
+    Then Wait for Disability of DISABLED BUTTON
+    Then Wait for ENABLED BUTTON is displayed
+    Then click on ENABLED BUTTON button
+    Then verify the Displayed Options on ENABLED BUTTON
     
     
     

@@ -1,40 +1,57 @@
 package stepDefinitions;
 
-import org.openqa.selenium.WebDriver;
+import java.io.IOException;
 
 import cucumber.TestContext;
+import enums.EnvironmentType;
+import io.cucumber.java.*;
 import io.cucumber.java.Scenario;
+import managers.FileReaderManager;
 import managers.WebDriverManager;
+import utils.Utils;
 
 public class Hooks {
 
-	WebDriver driver;
-	WebDriverManager webDriverManager;
-	TestContext testContext;
-	//	private static EnvironmentType environmentType;
+	TestContext testContext = new TestContext();
+	private static EnvironmentType environmentType;
+	WebDriverManager webDriverManager = new WebDriverManager();
+
+	//public Hooks(TestContext context) {	testContext =context }
 
 
-//	public Hooks(TestContext context) {
-//		testContext = context;
-//		testContext = new TestContext();
-//		System.out.println("Inside Hooks");
-//	}
+	//@Before
+	public void setUp() {
+		System.out.println("Into the setup method of AccountStep...");
+		//driver = testContext.webDriverManager.createLocalDriver();
+	}
 
-//	@Before
-    public void setUp() {
-        System.out.println("Into the setup method of AccountStep...");
-        driver = webDriverManager.createLocalDriver();
-    }
-	
-	
-//	@After
-	public void endTest(Scenario scenario) {
-		System.out.println("Scenario is  ------> "+scenario.getName());
-		System.out.println("Scenario status ------> "+scenario.getStatus());
-		System.out.println("Scenario getClass ------> "+scenario.getClass());
+
+	@After
+	public void endTest(Scenario scenario) throws IOException {
 		
-//		System.out.println("Cleaning activity..");
-		driver.quit();
+		String status=scenario.getStatus().name();
+		System.out.println("status : " +status);
+
+		environmentType=FileReaderManager.getInstance().getConfigFileReader().getEnvironment();
+
+		System.out.println(environmentType);
 		
+		switch (environmentType) {
+		case BROWSER:
+			if(status.equalsIgnoreCase("Failed")) {
+				Utils.takeScreenshot(scenario.getName(), testContext.webDriverManager.createLocalDriver());
+			}
+			
+			testContext.webDriverManager.closeDriver();
+			break;
+			
+		case MOBILE:
+			if(status.equalsIgnoreCase("Failed")) {
+				//Utils.takeScreenshot(scenario.getName(), testContext.webDriverManager.createLocalDriverMobile());
+			}
+			break;
+		}
+
+
 	}
 }

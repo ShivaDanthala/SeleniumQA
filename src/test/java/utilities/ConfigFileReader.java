@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+import enums.EnvironmentType;
+
 public class ConfigFileReader {
 
 	private Properties properties;
@@ -40,30 +42,18 @@ public class ConfigFileReader {
 
 	public void writeConfigFile(String browser) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	public String getEnvironment() {
-		String environmentType = properties.getProperty("environment");
-		if(environmentType!=null) {
-			return environmentType;
+	public EnvironmentType getEnvironment() {
+		String environmentName = properties.getProperty("environment");
+
+		if(environmentName==null || environmentName.equalsIgnoreCase("Browser")) {
+			return EnvironmentType.BROWSER;
 		}
-		else
-			throw new RuntimeException("environmentType  not found at "+propertyFilePath);
-		
+		else if(environmentName==null || environmentName.equalsIgnoreCase("Mobile"))
+			return EnvironmentType.MOBILE;
+		else  
+			throw new RuntimeException("EnvironmentType  not found at "+propertyFilePath);
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
