@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-		features= {"C:\\SeleniumQA\\src\\test\\resources\\features\\PlayGround_Wait.feature"},
+		features= {"C:\\SeleniumQA\\src\\test\\resources\\features\\PlayGround_popWindows.feature"},
 		glue= {"stepDefinitions"},
 		//tags= {"@waitConditions"},
 		plugin = {"pretty", "html:target/cucumber-reports/cucumber.html","json:target/cucumber.json"},

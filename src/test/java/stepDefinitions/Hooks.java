@@ -2,21 +2,22 @@ package stepDefinitions;
 
 import java.io.IOException;
 
+import org.openqa.selenium.WebDriver;
+
 import cucumber.TestContext;
 import enums.EnvironmentType;
-import io.cucumber.java.*;
+import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import managers.FileReaderManager;
-import managers.WebDriverManager;
 import utils.Utils;
 
 public class Hooks {
 
-	TestContext testContext = new TestContext();
 	private static EnvironmentType environmentType;
-	WebDriverManager webDriverManager = new WebDriverManager();
+	WebDriver driver = new TestContext().webDriverManager.createLocalDriver();
 
-	//public Hooks(TestContext context) {	testContext =context }
+
+	/* public Hooks(TestContext context) { testContext =context; } */
 
 
 	//@Before
@@ -28,23 +29,24 @@ public class Hooks {
 
 	@After
 	public void endTest(Scenario scenario) throws IOException {
-		
+
 		String status=scenario.getStatus().name();
 		System.out.println("status : " +status);
 
 		environmentType=FileReaderManager.getInstance().getConfigFileReader().getEnvironment();
 
 		System.out.println(environmentType);
-		
+
 		switch (environmentType) {
 		case BROWSER:
 			if(status.equalsIgnoreCase("Failed")) {
-				Utils.takeScreenshot(scenario.getName(), testContext.webDriverManager.createLocalDriver());
+				//Utils.takeScreenshot(scenario.getName(), testContext.webDriverManager.createLocalDriver());
+				Utils.takeScreenshot(scenario.getName(), driver);
 			}
-			
-			testContext.webDriverManager.closeDriver();
+
+			//driver.closeDriver();
 			break;
-			
+
 		case MOBILE:
 			if(status.equalsIgnoreCase("Failed")) {
 				//Utils.takeScreenshot(scenario.getName(), testContext.webDriverManager.createLocalDriverMobile());

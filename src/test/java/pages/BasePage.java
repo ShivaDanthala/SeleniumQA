@@ -17,16 +17,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
 	WebDriver driver;
 	private WebDriverWait wait;
-	//JavascriptExecutor js=(JavascriptExecutor)driver;
+//	JavascriptExecutor javascriptExecutor=(JavascriptExecutor)driver;
 	
 	public BasePage(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(this.driver, this);
-		//this.driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 	}
 	
 	public void closeBrowser() {
-//		driver.quit();
+		//driver.quit();
 		driver.navigate().refresh();
 	}
 	

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="SeleniumQA">
+
+	<listeners>
+		<listener class-name="com.pack.listeners.MyListener"></listener>
+	</listeners>
+	
+	<test name="SeleniumQA">
+		<classes>
+			<class name="stepDefinitions.WaitConditionsSteps" /> 
+		</classes>	
+	</test> 
+	
+	
+</suite> <!-- Suite -->

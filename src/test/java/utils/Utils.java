@@ -23,6 +23,8 @@ public class Utils {
 		//File destFile = new File(screenshotPath);		
 		//System.out.println("Destination file name is ----------> " +destFile);
 		
+		System.out.println("TimeStamp is - "+getTimeStamp());
+		
 		FileUtils.copyFile(scrFile, new File(screenshotPath+getTimeStamp()+".png"));
 		
 	}
