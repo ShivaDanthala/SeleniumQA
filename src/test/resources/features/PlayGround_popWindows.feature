@@ -1,62 +1,42 @@
-Feature: Launching the The Playground Page
+Feature: Verifying the Popup Windows features
 
   Background: User launched the application 'The Playground' URL
     Given User is navigated application The Playground URL
 
-  Scenario: Wait Conditions - Verifying the Alert Scenarios
-    When click on Wait Conditions View Page button
-   	Then verify the Wait for Alert To Be Present Header is displayed
-   	Then verify the Show Alert button is displayed
-    And click on Show Alert button
-    Then verify Alert and Accept
-    Then verify Alert handled successfully
-    Then verify the Show Prompt button is displayed
-    And click on Show Prompt button
-    Then verify AlertPrompt handled successfully
+  Scenario Outline: Popup Windows - Verifying the all available Window buttons
+  When click on Popup Windows View Page button
+  Then verify the "<title>" of the page
+  	Then verify all the buttons for Popup Windows
+  	Then navigate back to Home page
+  
+  	Examples:
+  	|title|
+  	|Multiple Windows|
+  
+  Scenario Outline: Popup Windows - Verifying Window1 functionality
+    When click on Popup Windows View Page button
+    Then click on Open New Window1 button and verify a new window is opened with title "<window1Title>"
+    And verify ClickMe2 button is displayed
+    Then click on ClickMe2 button
+    Then verify the successful clicked
+    Then close the current window
 
-  Scenario: Wait Conditions - Verifying the Element To Be Visible Scenarios
-    When click on Wait Conditions View Page button
-    Then verify the Wait for Element To Be Visible Header is displayed
-    And Click on TRIGGER button in Element To Be Visible Header section
-    Then Wait for visibilty of CLICK ME button
-    Then click on CLICK ME button
-    Then verify the Displayed Options
-    
-  Scenario: Wait Conditions - Verifying the Element To Be Invisible Scenarios
-    When click on Wait Conditions View Page button
-    Then verify the Wait for Element To Be Invisible Header is displayed
-    And Click on TRIGGER button in Element To Be Invisible Header section
-    Then Wait for Invisibilty of spinner
-    Then verify the text Thank God that spinner is gone!
-    
-  Scenario: Wait Conditions - Verifying the Element To Be Enabled Scenarios
-    When click on Wait Conditions View Page button
-    Then verify the Wait for Element To Be Enabled Header is displayed
-    Then verify the DISABLED BUTTON is displayed
-    And Click on TRIGGER button in Element To Be Enabled Header section
-    Then Wait for Disability of DISABLED BUTTON
-    Then Wait for ENABLED BUTTON is displayed
-    Then click on ENABLED BUTTON button
-    Then verify the Displayed Options on ENABLED BUTTON
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    Examples: 
+      | window1Title       |
+      | Frame2 (ID=frame2) |
+
+   Scenario Outline: Popup Windows - Verifying Window2 functionality
+    When click on Popup Windows View Page button
+    Then click on Open New Window2 button and verify a new window is opened with title "<window2Title>"
+    And verify ClickMe4 button is displayed
+    #Then click on ClickMe4 button
+    #Then verify the successful clicked
+    #Then close the current window
+    #Then navigate back to Home page
+#
+    #Examples: 
+      #| window1Title       |
+      #| Frame4 (ID=frame4) |   
+      
+      
+      

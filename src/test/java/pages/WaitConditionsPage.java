@@ -214,8 +214,7 @@ public class WaitConditionsPage extends BasePage {
 	}
 
 	public void click_EnabledBtn() {
-		//assert_isDisplayed(btnEnabled);
-		assert_Equals(btnEnabled.getText(), "Enabled Button");
+		isEquals(btnEnabled.getText(), "Enabled Button");
 		btnEnabled.click();	
 		
 	}

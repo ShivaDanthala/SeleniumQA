@@ -1,4 +1,4 @@
-Feature: Launching the The Playground Page
+Feature: Verifying the Wait Conditions features
 
   Background: User launched the application 'The Playground' URL
     Given User is navigated application The Playground URL

@@ -40,11 +40,10 @@ public class Hooks {
 		switch (environmentType) {
 		case BROWSER:
 			if(status.equalsIgnoreCase("Failed")) {
-				//Utils.takeScreenshot(scenario.getName(), testContext.webDriverManager.createLocalDriver());
 				Utils.takeScreenshot(scenario.getName(), driver);
 			}
 
-			//driver.closeDriver();
+			driver.quit();
 			break;
 
 		case MOBILE:

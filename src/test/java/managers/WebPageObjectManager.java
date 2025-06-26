@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import pages.AllElementsPage;
 import pages.FormPage;
 import pages.LoginPage;
+import pages.PopupWindowsPage;
 import pages.WaitConditionsPage;
 
 public class WebPageObjectManager {
@@ -14,6 +15,7 @@ public class WebPageObjectManager {
 	private FormPage formPage;
 	private AllElementsPage allElementsPage;
 	private WaitConditionsPage waitConditionsPage;
+	private PopupWindowsPage popupWindowsPage;
 	
 	public WebPageObjectManager(WebDriver driver) {
 		this.driver=driver;
@@ -33,6 +35,11 @@ public class WebPageObjectManager {
 
 	public WaitConditionsPage getWaitConditionsPage() {
 		return (waitConditionsPage==null)? new WaitConditionsPage(this.driver):waitConditionsPage;
+	}
+
+	public PopupWindowsPage getPopupWindowsPage() {
+		
+		return (popupWindowsPage==null)? new PopupWindowsPage(this.driver):popupWindowsPage;
 	}
 
 }
