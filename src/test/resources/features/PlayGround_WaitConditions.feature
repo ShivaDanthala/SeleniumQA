@@ -1,3 +1,4 @@
+ @waitConditions
 Feature: Verifying the Wait Conditions features
 
   Background: User launched the application 'The Playground' URL

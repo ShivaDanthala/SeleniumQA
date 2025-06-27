@@ -2,7 +2,6 @@ package managers;
 
 import org.openqa.selenium.WebDriver;
 
-import pages.AllElementsPage;
 import pages.FormPage;
 import pages.LoginPage;
 import pages.PopupWindowsPage;
@@ -13,7 +12,6 @@ public class WebPageObjectManager {
 	private WebDriver driver;
 	private LoginPage loginPage;
 	private FormPage formPage;
-	private AllElementsPage allElementsPage;
 	private WaitConditionsPage waitConditionsPage;
 	private PopupWindowsPage popupWindowsPage;
 	
@@ -27,10 +25,6 @@ public class WebPageObjectManager {
 	
 	public FormPage getFormPage() {
 		return (formPage==null)? formPage= new FormPage(this.driver): formPage;
-	}
-
-	public AllElementsPage getAllElementPage() {
-		return (allElementsPage==null)? new AllElementsPage(this.driver):allElementsPage;
 	}
 
 	public WaitConditionsPage getWaitConditionsPage() {

@@ -11,11 +11,10 @@ public class TestContext {
 	private WebPageObjectManager webPageObjectManager;
 	
 	public TestContext() {
-		System.out.println("Inside Test Context Constructor");
 		webDriverManager = new WebDriverManager();
 		environmentType= FileReaderManager.getInstance().getConfigFileReader().getEnvironment();
 		
-		System.out.println(environmentType);
+		//System.out.println(environmentType);
 		switch(environmentType) {
 		case BROWSER:
 			webPageObjectManager = new WebPageObjectManager(webDriverManager.createLocalDriver());

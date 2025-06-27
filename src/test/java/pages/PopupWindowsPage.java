@@ -14,6 +14,7 @@ public class PopupWindowsPage extends BasePage {
 		super(driver);
 	}
 
+	String mainWindow;
 
 	@FindBy(xpath="//a[@href='multi_window.html']")
 	private WebElement popupWidowsViewPage_btn;
@@ -55,45 +56,52 @@ public class PopupWindowsPage extends BasePage {
 		}
 	}
 
-	public void navigateTo_NewWindow(String windowName) {
+	public void getMainWindow() {
+		mainWindow = driver.getWindowHandle();
+		System.out.println("Main Window is "+mainWindow);
+	}
 
-		String mainWindow= driver.getWindowHandle();
-		System.out.println("main Window is "+mainWindow);
+	public void clickWindow1() {
 		newWindow1_btn.click();
+	}
+
+	public void navigateToOtherWindow(String windowName) {
+
+		System.out.println("Main Window :" +mainWindow);
+		Set<String> allWindows= driver.getWindowHandles();
+		System.out.println("Available windows are :"+allWindows.size());
+		allWindows.forEach(window -> System.out.println(window));
+
+		for(String currentWindow :allWindows) {
+
+			if(!mainWindow.equals(currentWindow)) {
+				if(driver.switchTo().window(currentWindow).getTitle().equalsIgnoreCase(windowName)) {
+					driver.switchTo().window(currentWindow);
+					System.out.println("Switched to other Window : "+driver.getTitle());
+					break;
+				}
+			}
+		}
+	}
+	
+	public void switchToCurrentWindow(String windowName) {
 
 		Set<String> allWindows= driver.getWindowHandles();
 
 		for(String currentWindow :allWindows) {
-			System.out.println("Current Window is : "+currentWindow);
-
-			if(!mainWindow.equalsIgnoreCase(currentWindow)) {
-				(driver.switchTo().window(currentWindow).getTitle()).equalsIgnoreCase(windowName);
-				System.out.println("Window name is matched : "+driver.switchTo().window(currentWindow).getTitle());
+			
+			if(driver.switchTo().window(currentWindow).getTitle().equalsIgnoreCase(windowName)) {
+				driver.switchTo().window(currentWindow);
+				System.out.println("Switched current to Window : "+driver.getTitle());
 				break;
 			}
 		}
-
 	}
 
-	public void navigateTo_NewWindow2(String windowName) {
-
-		String mainWindow= driver.getWindowHandle();
-		System.out.println("main Window is "+mainWindow);
+	public void clickWindow2() {
 		newWindow2_btn.click();
-
-		Set<String> allWindows= driver.getWindowHandles();
-
-		for(String currentWindow :allWindows) {
-			System.out.println("Current Window is : "+currentWindow);
-
-			if(!mainWindow.equalsIgnoreCase(currentWindow)) {
-				(driver.switchTo().window(currentWindow).getTitle()).equalsIgnoreCase(windowName);
-				System.out.println("Window name is matched : "+driver.switchTo().window(currentWindow).getTitle());
-				break;
-			}
-		}
-
 	}
+
 	public void verifyClickMe2Button() {
 		isDisplayed(clickMe2_btn);
 	}
@@ -114,7 +122,11 @@ public class PopupWindowsPage extends BasePage {
 		clickMe4_btn.click();		
 	}
 
+	public void switchToMainWindow() {
+		driver.switchTo().window(mainWindow);
+	}
 
+	
 
 
 

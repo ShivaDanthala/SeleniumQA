@@ -18,7 +18,7 @@ public class ConfigFileReader {
 		try {
 			reader = new BufferedReader(new FileReader(propertyFilePath));
 			properties = new Properties();
-			System.out.println("Property created");
+			//System.out.println("Property created");
 			try {
 				properties.load(reader);
 			} catch (IOException e) {

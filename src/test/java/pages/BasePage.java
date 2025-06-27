@@ -22,6 +22,7 @@ public class BasePage {
 	public BasePage(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(this.driver, this);
+		//this.driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 	}
 
 	
@@ -44,9 +45,7 @@ public class BasePage {
 		driver.navigate().refresh();
 	}
 
-	public void navigateBack() throws Exception {
-//		Thread.sleep(5000);
-//		driver.switchTo().defaultContent();
+	public void navigateBack(){
 		driver.navigate().back();
 	}
 

@@ -15,6 +15,7 @@ public class WebDriverManager implements IConstants {
 		
 		String browserName = FileReaderManager.getInstance().getConfigFileReader().getBrowser();
 		System.out.println("Browser is : " +browserName);
+		
 		present_path=System.getProperty("user.dir");
 
 		switch(browserName){

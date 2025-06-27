@@ -43,7 +43,7 @@ public class Hooks {
 				Utils.takeScreenshot(scenario.getName(), driver);
 			}
 
-			driver.quit();
+			//driver.quit();
 			break;
 
 		case MOBILE:

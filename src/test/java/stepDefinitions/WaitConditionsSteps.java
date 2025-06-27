@@ -14,7 +14,6 @@ public class WaitConditionsSteps extends WebDriverManager{
 
 	public TestContext testContext;
 	WaitConditionsPage waitConditionsPage;
-	//	String path= present_path+EXCEL_PATH;
 	String path ="C:\\SeleniumQA\\src\\test\\resources\\configurations\\TestData.xlsx";
 
 	public WaitConditionsSteps() {
@@ -22,11 +21,7 @@ public class WaitConditionsSteps extends WebDriverManager{
 		waitConditionsPage = testContext.getWebPageObjectManager().getWaitConditionsPage();
 	}
 
-	@Then("close the browser")
-	public void close_the_browser() {
-		waitConditionsPage.closeBrowser();
-	}
-
+	
 	/**
 	 * The Playground steps
 	 * **/

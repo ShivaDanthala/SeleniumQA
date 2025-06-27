@@ -8,9 +8,11 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-		features= {"C:\\SeleniumQA\\src\\test\\resources\\features\\PlayGround_popWindows.feature"},
+		//features= {"C:\\SeleniumQA\\src\\test\\resources\\features\\PlayGround_Wait.feature"},
+		features= {"src/test/resources/features"},
 		glue= {"stepDefinitions"},
-		//tags= {"@waitConditions"},
+		tags= "@Test or @popUpWindows or  @waitConditions",
+//		tags= "@Test",
 		plugin = {"pretty", "html:target/cucumber-reports/cucumber.html","json:target/cucumber.json"},
 		monochrome=true
 		)
@@ -21,11 +23,11 @@ public class TestRunner{
 
 /**
 public class TestRunner extends AbstractTestNGCucumberTests{
-	
+
 	public void writeToEnvironment() {
 		String browser = FileReaderManager.getInstance().getConfigFileReader().getBrowser();
 		System.out.println(browser);
 		FileReaderManager.getInstance().getConfigFileReader().writeConfigFile(browser);
 	}
 }
-**/
+ **/
