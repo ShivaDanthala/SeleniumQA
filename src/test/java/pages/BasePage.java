@@ -26,7 +26,6 @@ public class BasePage {
 	}
 
 	
-	
 	/**
 	 * 
 	 * driver methods 
@@ -89,19 +88,19 @@ public class BasePage {
 	}
 
 	public void waitTillAllElementsDisplayed(List<WebElement> allElements) throws TimeoutException{
-		wait= new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait= new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.visibilityOfAllElements(allElements));
 		System.out.println("waited Till AllElements Displayed");
 	}
 
 	public void waitTillElementisInvisible(WebElement invisibleElement) {
-		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.invisibilityOf(invisibleElement));
 		System.out.println("waited Till Element is Invisible for :"+invisibleElement.getText());
 	}
 
 	public void waitTillAlertDisplayed() throws TimeoutException {
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.alertIsPresent());
 		System.out.println("waited Till Alert Displayed");
 	}

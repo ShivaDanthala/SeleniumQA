@@ -85,11 +85,6 @@ public class WaitConditionsPage extends BasePage {
 	private WebElement div_SeeYouJustClickedMe;
 	
 	
-	
-	
-	
-	
-
 	/*************** Test Methods **************/
 
 
